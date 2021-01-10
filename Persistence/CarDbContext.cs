@@ -1,3 +1,4 @@
+using Car_Info.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Car_Info.Persistence
@@ -8,5 +9,6 @@ namespace Car_Info.Persistence
         {
 
         }
+         public DbSet<Make> Makes { get; set; }
     }
 }
