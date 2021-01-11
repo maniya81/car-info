@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using AutoMapper;
 
 namespace CarInfo
 {
@@ -30,7 +31,7 @@ namespace CarInfo
         {
             services.AddDbContext<CarDbContext>(opt => opt.UseSqlServer
             (Configuration.GetConnectionString("CarInfoConnection")));
-
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
