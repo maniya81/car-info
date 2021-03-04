@@ -1,12 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Car_Info.Models
+namespace Car_Info.Core.Models
 {
-    [Table("Models")]
+     [Table("Models")]
     public class Model
     {
-       public int Id { get; set; }
+         public int Id { get; set; }
        
        [Required]
        [StringLength(255)]

@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Car_Info.Models
+namespace Car_Info.Core.Models
 {
-   public class Make
+    public class Make
     {
         public int Id { get; set; }
         [Required]
