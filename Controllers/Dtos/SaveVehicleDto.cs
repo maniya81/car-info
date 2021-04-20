@@ -6,7 +6,7 @@ namespace Car_Info.Controllers.Dtos
 {
     public class SaveVehicleDto
     {
-          public int Id { get; set; }
+        public int Id { get; set; }
         public int ModelId { get; set; }
         public bool IsRegistered { get; set; }
 

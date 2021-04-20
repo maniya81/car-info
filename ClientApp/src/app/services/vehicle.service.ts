@@ -17,4 +17,7 @@ export class VehicleService {
   getMakes(): Observable<any> {
     return this.http.get(`${environment.apiUrl}makes`);
   }
+  create(vehicle) {
+    return this.http.post(`${environment.apiUrl}vehicles`, vehicle);
+  }
 }

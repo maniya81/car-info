@@ -8,29 +8,44 @@ import { FeatureService } from 'src/app/services/feature.service';
   styleUrls: ['./vehicle-form.component.css']
 })
 export class VehicleFormComponent implements OnInit {
-  makes: any[]; 
+  makes: any[];
   models: any[];
   features: any[];
-  vehicle: any = {};
+  vehicle: any = {
+    features: [],
+    contact: {}
+  };
 
   constructor(
-    private vehicleservice:VehicleService,
+    private vehicleService: VehicleService,
     private featureService: FeatureService) { }
 
   ngOnInit(): void {
-    this.vehicleservice.getMakes().subscribe( makes =>{
+    this.vehicleService.getMakes().subscribe(makes => {
       this.makes = makes;
       console.log(this.makes);
-      
+
     })
-    this.vehicleservice.getFeatures().subscribe(features => 
+    this.vehicleService.getFeatures().subscribe(features =>
       this.features = features);
+  }
+  onFeatureToggle(featureId, $event) {
+    if ($event.target.checked)
+      this.vehicle.features.push(featureId);
+    else {
+      var index = this.vehicle.features.indexOf(featureId);
+      this.vehicle.features.splice(index, 1);
+    }
   }
   onMakeChange() {
     console.log('change');
-    var selectedMake = this.makes.find(m => m.id == this.vehicle.make);
+    var selectedMake = this.makes.find(m => m.id == this.vehicle.makeId);
     this.models = selectedMake ? selectedMake.models : [];
-
+    delete this.vehicle.modelId;
+  }
+  submit() {
+    this.vehicleService.create(this.vehicle)
+      .subscribe(x => console.log(x));
   }
 
 }
