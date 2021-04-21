@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Car_Info.Core.Models
 {
-     [Table("Models")]
+    [Table("Models")]
     public class Model
     {
          public int Id { get; set; }

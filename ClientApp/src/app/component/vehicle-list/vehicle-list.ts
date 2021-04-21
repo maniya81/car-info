@@ -9,7 +9,7 @@ export class VehicleListComponent implements OnInit {
   vehicles: any;
   allVehicles: any;
   makes: KeyValuePair[];
-  filter: any = {};
+  query: any = {};
 
 
   constructor(private vehicleService: VehicleService) { }
@@ -17,27 +17,29 @@ export class VehicleListComponent implements OnInit {
   ngOnInit() {
     this.vehicleService.getMakes()
       .subscribe(makes => this.makes = makes);
-    this.vehicleService.getVehicles()
-      .subscribe(vehicle => {
-        this.vehicles = this.allVehicles = vehicle;
-        console.log(this.vehicles);
-      });
+    this.populateVehicles();
 
   }
+  private populateVehicles() {
+    this.vehicleService.getVehicles(this.query)
+      .subscribe(vehicles => this.vehicles = vehicles);
+  }
   onFilterChange() {
-    var vehicles = this.allVehicles;
-
-    if (this.filter.makeId)
-      vehicles = vehicles.filter(v => v.make.id == this.filter.makeId);
-
-    if (this.filter.modelId)
-      vehicles = vehicles.filter(v => v.model.id == this.filter.modelId);
-
-    this.vehicles = vehicles;
+    this.populateVehicles();
   }
 
   resetFilter() {
-    this.filter = {};
+    this.query = {};
     this.onFilterChange();
+  }
+
+  sortBy(columnName) {
+    if (this.query.sortBy === columnName) {
+      this.query.isSortAscending = false;
+    } else {
+      this.query.sortBy = columnName;
+      this.query.isSortAscending = true;
+    }
+    this.populateVehicles();
   }
 }

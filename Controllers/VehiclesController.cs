@@ -91,13 +91,12 @@ namespace Car_Info.Controllers
             return Ok(vehicleDto);
         }
         [HttpGet]
-        public async Task<IEnumerable<VehicleDto>> GetVehicles()
+        public async Task<IEnumerable<VehicleDto>> GetVehicles(VehicleQueryDto filterDto)
         {
-            var vehicles = await repository.GetVehicles();
+            var filter = mapper.Map<VehicleQueryDto, VehicleQuery>(filterDto);
+            var vehicles = await repository.GetVehicles(filter);
 
             return mapper.Map<IEnumerable<Vehicle>, IEnumerable<VehicleDto>>(vehicles);
         }
-
-
     }
 }

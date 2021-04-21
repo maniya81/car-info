@@ -48,7 +48,7 @@ export class VehicleFormComponent implements OnInit {
       if (this.vehicle.id) {
         this.vehicleService.getVehicle(this.vehicle.id)
           .subscribe(vehicle => {
-            //console.log("vehicle", vehicle);
+            console.log("vehicle", vehicle);
             if (this.vehicle.id) {
               this.setVehicle(vehicle);
               this.populateModels();
@@ -61,7 +61,7 @@ export class VehicleFormComponent implements OnInit {
     })
   }
 
-  private setVehicle(v) {
+  private setVehicle(v: Vehicle) {
     //console.log("setVehicle", v);
 
     this.vehicle.id = v.id;

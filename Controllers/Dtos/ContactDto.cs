@@ -4,7 +4,6 @@ namespace Car_Info.Controllers.Dtos
 {
     public class ContactDto
     {
-        
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
@@ -15,7 +14,6 @@ namespace Car_Info.Controllers.Dtos
         [Required]
         [StringLength(255)]
         public string Phone { get; set; }
-
-    
     }
+
 }
