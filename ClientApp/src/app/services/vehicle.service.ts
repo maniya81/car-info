@@ -20,4 +20,7 @@ export class VehicleService {
   create(vehicle) {
     return this.http.post(`${environment.apiUrl}vehicles`, vehicle);
   }
+  getVehicle(id) {
+    return this.http.get(`${environment.apiUrl}vehicles/${id}`)
+  }
 }
