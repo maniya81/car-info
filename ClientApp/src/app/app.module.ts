@@ -1,3 +1,5 @@
+import { VehicleListComponent } from './component/vehicle-list/vehicle-list';
+import { HomeComponent } from './component/home/home.component';
 import { FeatureService } from './services/feature.service';
 import { VehicleService } from './services/vehicle.service';
 import { MenuComponent } from './component/menu/menu.component';
@@ -15,7 +17,9 @@ import { AppErrorHandler } from './app.error-handler';
   declarations: [
     AppComponent,
     MenuComponent,
-    VehicleFormComponent
+    VehicleFormComponent,
+    HomeComponent,
+    VehicleListComponent
   ],
   imports: [
     BrowserModule,

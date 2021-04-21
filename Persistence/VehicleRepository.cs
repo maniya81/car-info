@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Car_Info.Core;
 using Car_Info.Core.Models;
@@ -35,5 +36,14 @@ namespace Car_Info.Persistence
     {
       context.Remove(vehicle);
     }
-  }
+        public async Task<IEnumerable<Vehicle>> GetVehicles()
+        {
+            return await context.Vehicles
+              .Include(v => v.Model)
+                .ThenInclude(m => m.Make)
+              .Include(v => v.Features)
+                .ThenInclude(vf => vf.Feature)
+              .ToListAsync();
+        }
+    }
 }

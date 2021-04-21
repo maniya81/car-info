@@ -10,10 +10,14 @@
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
-          <a [routerLink]="['']" class="nav-link">Home</a>
+          <a [routerLink]="['/home']" class="nav-link">Home</a>
+        </li>
+
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+          <a [routerLink]="['/vehicles']" class="nav-link">Vehicles</a>
         </li>
         <li class="nav-item" [routerLinkActive]="['active']">
-          <a [routerLink]="['/vehicle/new']" class="nav-link">New Vehicle</a>
+          <a [routerLink]="['/vehicles/new']" class="nav-link">New Vehicle</a>
         </li>
         <li class="nav-item" [routerLinkActive]="['active']">
           <a [routerLink]="['/contact']" class="nav-link">Contact</a>

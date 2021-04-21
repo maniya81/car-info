@@ -1,10 +1,15 @@
+import { HomeComponent } from './component/home/home.component';
 import { VehicleFormComponent } from './component/vehicle-form/vehicle-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { VehicleListComponent } from './component/vehicle-list/vehicle-list';
 
 const routes: Routes = [
-  { path: "vehicle/new", component: VehicleFormComponent },
-  { path: 'vehicle/:id', component: VehicleFormComponent },
+  { path: '', redirectTo: 'vehicles', pathMatch: 'full' },
+  { path: "vehicles/new", component: VehicleFormComponent },
+  { path: 'vehicles/:id', component: VehicleFormComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'vehicles', component: VehicleListComponent },
 ];
 
 @NgModule({
