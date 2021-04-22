@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppErrorHandler } from './app.error-handler';
 import { PaginationComponent } from './component/shared/pagination.component';
+import { ViewVehicleComponent } from './component/view-vehicle/view-vehicle';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PaginationComponent } from './component/shared/pagination.component';
     HomeComponent,
     VehicleListComponent,
     PaginationComponent,
+    ViewVehicleComponent
   ],
   imports: [
     BrowserModule,

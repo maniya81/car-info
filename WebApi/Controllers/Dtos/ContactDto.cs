@@ -15,5 +15,4 @@ namespace Car_Info.Controllers.Dtos
         [StringLength(255)]
         public string Phone { get; set; }
     }
-
 }

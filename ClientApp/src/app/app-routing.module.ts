@@ -3,11 +3,13 @@ import { VehicleFormComponent } from './component/vehicle-form/vehicle-form.comp
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { VehicleListComponent } from './component/vehicle-list/vehicle-list';
+import { ViewVehicleComponent } from './component/view-vehicle/view-vehicle';
 
 const routes: Routes = [
   { path: '', redirectTo: 'vehicles', pathMatch: 'full' },
   { path: "vehicles/new", component: VehicleFormComponent },
-  { path: 'vehicles/:id', component: VehicleFormComponent },
+  { path: 'vehicles/edit/:id', component: VehicleFormComponent },
+  { path: 'vehicles/:id', component: ViewVehicleComponent },
   { path: 'home', component: HomeComponent },
   { path: 'vehicles', component: VehicleListComponent },
 ];
