@@ -100,8 +100,10 @@ export class VehicleFormComponent implements OnInit {
     }
     else {
       this.vehicleService.create(this.vehicle)
-        .subscribe(x =>
-          console.log(x)
+        .subscribe(x => {
+          this.router.navigate(['/vehicles']);
+          console.log(x);
+        }
           // manual error handling
           // err => {
           //   console.log("error occured");

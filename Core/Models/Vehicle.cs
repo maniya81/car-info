@@ -9,7 +9,7 @@ namespace Car_Info.Core.Models
      [Table("Vehicles")]
     public class Vehicle
     {
-               public int Id { get; set; }
+        public int Id { get; set; }
         public int ModelId { get; set; }
         public Model Model { get; set; }
         public bool IsRegistered { get; set; }
@@ -29,6 +29,6 @@ namespace Car_Info.Core.Models
         public Vehicle()
         {
             Features = new Collection<VehicleFeature>();
-        } 
+        }
     }
 }

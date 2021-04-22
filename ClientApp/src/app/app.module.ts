@@ -12,6 +12,7 @@ import { VehicleFormComponent } from './component/vehicle-form/vehicle-form.comp
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppErrorHandler } from './app.error-handler';
+import { PaginationComponent } from './component/shared/pagination.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AppErrorHandler } from './app.error-handler';
     MenuComponent,
     VehicleFormComponent,
     HomeComponent,
-    VehicleListComponent
+    VehicleListComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

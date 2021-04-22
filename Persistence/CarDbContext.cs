@@ -17,7 +17,8 @@ namespace Car_Info.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<VehicleFeature>().HasKey(vf =>
-              new { vf.VehicleId, vf.FeatureId });
+              new { vf.VehicleId, vf.FeatureId }); 
+
         }
 
 
