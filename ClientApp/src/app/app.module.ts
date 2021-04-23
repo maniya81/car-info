@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { AppErrorHandler } from './app.error-handler';
 import { PaginationComponent } from './component/shared/pagination.component';
 import { ViewVehicleComponent } from './component/view-vehicle/view-vehicle';
+import { PhotoService } from './services/photo.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ViewVehicleComponent } from './component/view-vehicle/view-vehicle';
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHandler },
-    VehicleService
+    VehicleService,
+    PhotoService
   ],
   bootstrap: [AppComponent]
 })

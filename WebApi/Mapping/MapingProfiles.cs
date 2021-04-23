@@ -10,6 +10,7 @@ namespace Car_Info.Mapping
         public MapingProfiles()
         {
             // Domain to API Dto
+            CreateMap<Photo, PhotoDto>();
             CreateMap<Make, MakeDto>();
             CreateMap<Make, KeyValuePairDto>();
             CreateMap<Model, KeyValuePairDto>();
