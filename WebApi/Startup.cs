@@ -60,6 +60,7 @@ namespace CarInfo
             //app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseStaticFiles();
 
             app.UseCors("MyPolicy");
 

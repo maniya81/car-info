@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { VehicleService } from './../../services/vehicle.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,6 +12,7 @@ export class ViewVehicleComponent implements OnInit {
   vehicle: any;
   vehicleId: number;
   photos: any;
+  photoUrl = environment.photoUrl;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
