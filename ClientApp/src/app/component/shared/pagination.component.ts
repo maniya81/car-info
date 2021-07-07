@@ -12,7 +12,7 @@ import { OnChanges } from '@angular/core';
 	<nav aria-label="Page navigation example" *ngIf="totalItems > pageSize">
   <ul class="pagination">
     <li class="page-item" [class.disabled]="currentPage == 1">
-      <a class="page-link" (click)="previous()" aria-label="Previous">
+      <a class="page-link" style="cursor: pointer;" (click)="previous()" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
         <span class="sr-only">Previous</span>
       </a>
@@ -43,7 +43,7 @@ export class PaginationComponent implements OnChanges {
 		for (var i = 1; i <= pagesCount; i++)
 			this.pages.push(i);
 
-		console.log(this);
+		// console.log(this);
 	}
 
 	changePage(page) {
