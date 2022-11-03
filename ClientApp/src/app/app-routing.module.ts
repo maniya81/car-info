@@ -6,7 +6,7 @@ import { VehicleListComponent } from './component/vehicle-list/vehicle-list';
 import { ViewVehicleComponent } from './component/view-vehicle/view-vehicle';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'vehicles', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: "vehicles/new", component: VehicleFormComponent },
   { path: 'vehicles/edit/:id', component: VehicleFormComponent },
   { path: 'vehicles/:id', component: ViewVehicleComponent },

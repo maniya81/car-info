@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o --hmr",
-    "build": "ng build",
+    "starts": "node --openssl-legacy-provider  ./node_modules/@angular/cli/bin/ng serve",
+    "build": "node --openssl-legacy-provider  ./node_modules/@angular/cli/bin/ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
