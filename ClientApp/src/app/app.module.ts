@@ -1,11 +1,9 @@
 import { VehicleListComponent } from './component/vehicle-list/vehicle-list';
 import { HomeComponent } from './component/home/home.component';
-import { FeatureService } from './services/feature.service';
 import { VehicleService } from './services/vehicle.service';
 import { MenuComponent } from './component/menu/menu.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VehicleFormComponent } from './component/vehicle-form/vehicle-form.component';

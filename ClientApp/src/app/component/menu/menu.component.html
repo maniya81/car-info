@@ -1,31 +1,35 @@
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-  <div class="container">
-    <a class="navbar-brand" [routerLink]="['/home']">Car Info</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="oi oi-menu"></span>
-      Menu
-    </button>
+<nav class="navbar navbar-light bg-light" style="margin-left: 0.5em;">
+  <ul class="navbar-nav">
+    <div class="row">
+      <div class="col-2">
+        <li class="nav-item wordNowrap">
+          <a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: false }" [routerLink]="['/home']"
+            class="nav-link">Car Info</a>
+        </li>
+      </div>
+      <div class="col-2 wordNowrap">
+        <li class="nav-item">
+          <a [routerLink]="['/vehicles']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"
+            class="nav-link">Vehicles</a>
+        </li>
+      </div>
+      <div class="col-3 wordNowrap">
+        <li class="nav-item">
+          <a [routerLink]="['/vehicles/new']" [routerLinkActive]="['active']" class="nav-link">New Vehicle</a>
+        </li>
+      </div>
+      <div class="col-2 wordNowrap">
+        <li class="nav-item">
+          <a [routerLink]="['/contact']" [routerLinkActive]="['active']" class="nav-link">Contact</a>
+        </li>
+      </div>
+      <div class="col-2 wordNowrap">
+        <li class="nav-item">
+          <a [routerLink]="['/login']" [routerLinkActive]="['active']" class="nav-link">Login</a>
+        </li>
+      </div>
 
-    <div class="collapse navbar-collapse" id="ftco-nav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
-          <a [routerLink]="['/home']" class="nav-link">Home</a>
-        </li>
-
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
-          <a [routerLink]="['/vehicles']" class="nav-link">Vehicles</a>
-        </li>
-        <li class="nav-item" [routerLinkActive]="['active']">
-          <a [routerLink]="['/vehicles/new']" class="nav-link">New Vehicle</a>
-        </li>
-        <li class="nav-item" [routerLinkActive]="['active']">
-          <a [routerLink]="['/contact']" class="nav-link">Contact</a>
-        </li>
-        <li class="nav-item" [routerLinkActive]="['active']">
-          <a [routerLink]="['/login']" class="nav-link">Login</a>
-        </li>
-      </ul>
     </div>
-  </div>
+
+  </ul>
 </nav>
