@@ -125,5 +125,7 @@
       }
     }
   },
-  "defaultProject": "CarInfo"
+  "cli": {
+    "analytics": false
+  }
 }
