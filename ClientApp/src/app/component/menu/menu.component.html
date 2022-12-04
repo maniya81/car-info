@@ -15,7 +15,7 @@
       </div>
       <div class="col-3 wordNowrap">
         <li class="nav-item">
-          <a [routerLink]="['/vehicles/new']" [routerLinkActive]="['active']" class="nav-link">New Vehicle</a>
+          <a [routerLink]="['/vehicles/new']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" class="nav-link">New Vehicle</a>
         </li>
       </div>
       <div class="col-2 wordNowrap">
@@ -28,8 +28,6 @@
           <a [routerLink]="['/login']" [routerLinkActive]="['active']" class="nav-link">Login</a>
         </li>
       </div>
-
     </div>
-
   </ul>
 </nav>

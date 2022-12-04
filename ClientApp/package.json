@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o --hmr",
-    "starts": "node --openssl-legacy-provider  ./node_modules/@angular/cli/bin/ng serve",
-    "build": "node --openssl-legacy-provider  ./node_modules/@angular/cli/bin/ng build",
+    "start": "ng serve",
+    "starts": "ng serve -o --hmr",
+    "build": "ng build --configuration=staging",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

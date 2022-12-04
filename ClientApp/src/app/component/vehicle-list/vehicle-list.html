@@ -1,4 +1,3 @@
-<div style="margin: 1%">
   <h2>Vehicles</h2>
   <p>
     <a [routerLink]="['/vehicles/new']" class="btn btn-primary">New Vehicle</a>
@@ -8,11 +7,11 @@
       <div class="form-group">
         <label for="make">Make</label>
         <select id="make" class="form-control" [(ngModel)]="query.makeId" (change)="onFilterChange()">
-          <option value=""></option>
+          <option  value="">Select Make</option>
           <option *ngFor="let m of makes" value="{{ m.id }}">{{ m.name }}</option>
         </select>
       </div>
-      <button class="btn btn-primary mt-1" (click)="resetFilter()">Reset</button>
+      <button class="btn btn-primary mt-2" (click)="resetFilter()">Reset</button>
     </div>
   </div>
   <table class="table">
@@ -44,4 +43,3 @@
   </table>
   <pagination [total-items]="queryResult.totalItems" [page-size]="query.pageSize" (page-changed)="onPageChange($event)">
   </pagination>
-</div>

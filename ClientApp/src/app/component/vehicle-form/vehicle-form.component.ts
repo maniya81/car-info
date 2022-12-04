@@ -62,8 +62,6 @@ export class VehicleFormComponent implements OnInit {
   }
 
   private setVehicle(v: Vehicle) {
-    //console.log("setVehicle", v);
-
     this.vehicle.id = v.id;
     this.vehicle.makeId = v.make.id;
     this.vehicle.modelId = v.model.id;
@@ -71,7 +69,9 @@ export class VehicleFormComponent implements OnInit {
     this.vehicle.contact = v.contact;
     this.vehicle.features = v.features.map(f => f.id);
   }
+
   onFeatureToggle(featureId, $event) {
+    debugger
     if ($event.target.checked)
       this.vehicle.features.push(featureId);
     else {
@@ -83,7 +83,6 @@ export class VehicleFormComponent implements OnInit {
     //console.log('change');
     var selectedMake = this.makes.find(m => m.id == this.vehicle.makeId);
     this.models = selectedMake ? selectedMake.models : [];
-    delete this.vehicle.modelId;
   }
   private populateModels() {
     var selectedMake = this.makes.find(m => m.id == this.vehicle.makeId);

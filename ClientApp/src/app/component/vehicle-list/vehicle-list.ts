@@ -12,6 +12,7 @@ export class VehicleListComponent implements OnInit {
   vehiclesLength: number;
   makes: KeyValuePair[];
   query: any = {
+    makeId:"",
     pageSize: this.PAGE_SIZE
   };
   columns = [
@@ -19,7 +20,6 @@ export class VehicleListComponent implements OnInit {
     { title: 'Contact Name', key: 'contactName', isSortable: true },
     { title: 'Make', key: 'make', isSortable: true },
     { title: 'Model', key: 'model', isSortable: true },
-    {}
   ];
 
   constructor(private vehicleService: VehicleService) { }
