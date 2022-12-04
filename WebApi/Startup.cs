@@ -1,15 +1,14 @@
-using System;
+using AutoMapper;
+using Car_Info.Core;
+using Car_Info.Core.Models;
 using Car_Info.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using AutoMapper;
-using Car_Info.Core;
-using Car_Info.Core.Models;
+using System;
 
 namespace CarInfo
 {
@@ -58,11 +57,16 @@ namespace CarInfo
             //}
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CarInfo v1"));
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CarInfo v1");
+                c.RoutePrefix = string.Empty;  // Set Swagger UI at apps root
+            });
 
             //app.UseHttpsRedirection();
 
             app.UseRouting();
+
             app.UseStaticFiles();
 
             app.UseCors("MyPolicy");
