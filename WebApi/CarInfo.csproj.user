@@ -5,5 +5,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <ActiveDebugProfile>CarInfo</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>D:\Git_Projects\car-info\WebApi\Properties\PublishProfiles\Car-Info - Web Deploy1.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
