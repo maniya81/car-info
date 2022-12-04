@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "starts": "ng serve -o --hmr",
-    "build": "ng build --configuration production",
+    "buildp": "ng build --configuration production",
     "build-dev": "ng build",
     "test": "ng test",
     "lint": "ng lint",
