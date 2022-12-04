@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using AutoMapper;
 using Car_Info.Controllers.Dtos;
 using Car_Info.Core;
 using Car_Info.Core.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace Car_Info.Controllers
 {

@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:5000/api/',
-  photoUrl: 'https://localhost:5000/uploads/'
+  apiUrl: 'https://car-info.azurewebsites.net/api/',
+  photoUrl: 'https://car-info.azurewebsites.net/uploads/'
 };
