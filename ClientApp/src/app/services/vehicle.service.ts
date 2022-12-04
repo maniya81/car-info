@@ -42,6 +42,7 @@ export class VehicleService {
       )
     );
   }
+  
   private handleError(err: any) {
     console.log(err);
     let errorMessage: string;

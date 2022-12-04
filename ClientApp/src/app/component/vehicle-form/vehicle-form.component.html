@@ -1,5 +1,4 @@
-  <h1>New Vehicle</h1>
-
+  <h1 class="m-0">New Vehicle</h1>
   <form #f="ngForm" (ngSubmit)="submit()" novalidate>
     <div class="form-group">
       <label for="make">Make</label>
@@ -32,13 +31,16 @@
         No
       </label>
     </div>
-    <h2>Feature</h2>
-    <div *ngFor="let f of features" class="checkbox">
-      <label for="feature{{ f.id }}">
-        <input type="checkbox" id="feature{{ f.id }}" (change)="onFeatureToggle(f.id, $event)"
-          [checked]="vehicle.features.includes(f.id)"> {{ f.name }}
-      </label>
+    <div class="mt-2">
+      <h2 class="m-0">Feature</h2>
+      <div *ngFor="let f of features" class="checkbox">
+        <label for="feature{{ f.id }}">
+          <input type="checkbox" id="feature{{ f.id }}" (change)="onFeatureToggle(f.id, $event)"
+            [checked]="vehicle.features.includes(f.id)"> {{ f.name }}
+        </label>
+      </div>
     </div>
+   <div class="mt-2">
     <div class="form-group">
       <label for="contactName">Name</label>
       <input id="contactName" type="text" class="form-control" [(ngModel)]="vehicle.contact.name" name="contactName"
@@ -57,6 +59,8 @@
       <label for="contactEmail">Email</label>
       <input id="contactEmail" type="text" class="form-control" [(ngModel)]="vehicle.contact.email" name="contactEmail">
     </div>
+   </div>
+   
     <button class="btn btn-primary mt-2">Save</button>
     <button *ngIf="vehicle.id" class="btn btn-danger" type="button" (click)="delete()"
       style="margin-left: 5px;">Delete</button>
