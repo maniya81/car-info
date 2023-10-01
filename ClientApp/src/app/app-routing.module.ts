@@ -6,16 +6,20 @@ import { VehicleListComponent } from './component/vehicle-list/vehicle-list';
 import { ViewVehicleComponent } from './component/view-vehicle/view-vehicle';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: "vehicles/new", component: VehicleFormComponent },
+  { path: 'vehicles/new', component: VehicleFormComponent },
   { path: 'vehicles/edit/:id', component: VehicleFormComponent },
   { path: 'vehicles/:id', component: ViewVehicleComponent },
   { path: 'home', component: HomeComponent },
   { path: 'vehicles', component: VehicleListComponent },
+  {
+    path: '**',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
