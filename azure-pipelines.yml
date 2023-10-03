@@ -44,10 +44,10 @@ steps:
       platform: '$(buildPlatform)'
       configuration: '$(buildConfiguration)'
 
-  # Publish Build Artifacts
+ # Publish Build Artifacts
   - task: PublishBuildArtifacts@1
-    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['checkChanges.skipArtifact'], 'true'))
+    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/main'))
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      PathtoPublish: '$(build.artifactStagingDirectory)/WebApp.zip' 
       ArtifactName: 'drop'
       publishLocation: 'Container'
