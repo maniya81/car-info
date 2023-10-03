@@ -3,49 +3,57 @@
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
+# Trigger only on the 'main' branch and in the WebApi directory
 trigger:
-- main
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - 'WebApi/*'
 
+# Define the pipeline pool and variables
 pool:
   vmImage: 'windows-latest'
-
 variables:
-  solution: 'WebApi/CarInfo.sln' # Point to your specific solution file under WebApi
+  solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+# Steps in the pipeline
 steps:
-- task: NuGetToolInstaller@1
+  # Install NuGet
+  - task: NuGetToolInstaller@1
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+  # Restore NuGet packages
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '$(solution)'
 
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+  # Build the solution using Visual Studio
+  - task: VSBuild@1
+    inputs:
+      solution: '$(solution)'
+      msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
 
-# Archive the .NET Core App for deployment
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(build.artifactStagingDirectory)'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+  # Run the tests
+  - task: VSTest@2
+    inputs:
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
 
-# Publish the zip file as a pipeline artifact for release
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+  # Script to check if there are any changes in the WebApi directory
+  - script: |
+      git diff --name-only HEAD HEAD~1 | grep 'WebApi/' || echo "##vso[task.setvariable variable=skipArtifact;isOutput=true]true"
+    name: checkChanges
+    displayName: 'Check for changes in WebApi directory'
 
-# Your test task if any
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+  # Publish Build Artifacts
+  - task: PublishBuildArtifacts@1
+    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['checkChanges.skipArtifact'], 'true'))
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
