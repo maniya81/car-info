@@ -44,12 +44,6 @@ steps:
       platform: '$(buildPlatform)'
       configuration: '$(buildConfiguration)'
 
-  # Script to check if there are any changes in the WebApi directory
-  - script: |
-      git diff --name-only HEAD HEAD~1 | grep 'WebApi/' || echo "##vso[task.setvariable variable=skipArtifact;isOutput=true]true"
-    name: checkChanges
-    displayName: 'Check for changes in WebApi directory'
-
   # Publish Build Artifacts
   - task: PublishBuildArtifacts@1
     condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['checkChanges.skipArtifact'], 'true'))
