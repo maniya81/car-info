@@ -1,45 +1,63 @@
-  <h2>Vehicles</h2>
-  <p>
-    <a [routerLink]="['/vehicles/new']" class="btn btn-primary">New Vehicle</a>
-  </p>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="form-group">
-        <label for="make">Make</label>
-        <select id="make" class="form-control" [(ngModel)]="query.makeId" (change)="onFilterChange()">
-          <option  value="">Select Make</option>
-          <option *ngFor="let m of makes" value="{{ m.id }}">{{ m.name }}</option>
-        </select>
-      </div>
-      <button class="btn btn-primary mt-2" (click)="resetFilter()">Reset</button>
-    </div>
+<h2>Vehicles</h2>
+<p>
+  <a [routerLink]="['/vehicles/new']" class="btn btn-primary">New Vehicle</a>
+</p>
+
+<div class="m-3" *ngIf="loading$|async">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
   </div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th *ngFor="let c of columns">
-          <div *ngIf="c.isSortable" (click)="sortBy(c.key)">
-            {{ c.title }}
-            <i *ngIf="query.sortBy === c.key" class="fa" [class.fa-sort-asc]="query.isSortAscending"
-              [class.fa-sort-desc]="!query.isSortAscending"></i>
-          </div>
-          <div *ngIf="!c.isSortable">
-            {{ c.title }}
-          </div>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let v of queryResult.items">
-        <td>{{ v.id }}</td>
-        <td>{{ v.make.name }}</td>
-        <td>{{ v.model.name }}</td>
-        <td>{{ v.contact.name }}</td>
-        <td>
-          <a [routerLink]="['/vehicles/', v.id]">View</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <pagination [total-items]="queryResult.totalItems" [page-size]="query.pageSize" (page-changed)="onPageChange($event)">
-  </pagination>
+  <b>
+    Please be patient it's running on free tier db, so it may take time to load data
+  </b>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="make">Make</label>
+      <select
+        id="make"
+        class="form-control"
+        [(ngModel)]="query.makeId"
+        (change)="onFilterChange()">
+        <option value="">Select Make</option>
+        <option *ngFor="let m of makes" value="{{ m.id }}">{{ m.name }}</option>
+      </select>
+    </div>
+    <button class="btn btn-primary mt-2" (click)="resetFilter()">Reset</button>
+  </div>
+</div>
+<table class="table table-striped table-hover mt-3">
+  <thead class="table-dark">
+    <tr>
+      <th *ngFor="let c of columns">
+        <div *ngIf="c.isSortable" class="clickable" (click)="sortBy(c.key)">
+          {{ c.title }}
+          <i
+            *ngIf="query.sortBy === c.key"
+            class="fa"
+            [class.fa-sort-asc]="query.isSortAscending"
+            [class.fa-sort-desc]="!query.isSortAscending"></i>
+        </div>
+        <div *ngIf="!c.isSortable">{{ c.title }}</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let v of queryResult.items">
+      <td>{{ v.id }}</td>
+      <td>{{ v.make.name }}</td>
+      <td>{{ v.model.name }}</td>
+      <td>{{ v.contact.name }}</td>
+      <td>
+        <a [routerLink]="['/vehicles/', v.id]" class="btn btn-primary">View</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<pagination
+  [total-items]="queryResult.totalItems"
+  [page-size]="query.pageSize"
+  (page-changed)="onPageChange($event)">
+</pagination>

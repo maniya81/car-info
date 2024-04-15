@@ -1,33 +1,57 @@
-<nav class="navbar navbar-light bg-light" style="margin-left: 0.5em;">
-  <ul class="navbar-nav">
-    <div class="row">
-      <div class="col-2">
-        <li class="nav-item wordNowrap">
-          <a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: false }" [routerLink]="['/home']"
-            class="nav-link">Car Info</a>
-        </li>
-      </div>
-      <div class="col-2 wordNowrap">
-        <li class="nav-item">
-          <a [routerLink]="['/vehicles']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"
-            class="nav-link">Vehicles</a>
-        </li>
-      </div>
-      <div class="col-3 wordNowrap">
-        <li class="nav-item">
-          <a [routerLink]="['/vehicles/new']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" class="nav-link">New Vehicle</a>
-        </li>
-      </div>
-      <div class="col-2 wordNowrap">
-        <li class="nav-item">
-          <a [routerLink]="['/contact']" [routerLinkActive]="['active']" class="nav-link">Contact</a>
-        </li>
-      </div>
-      <div class="col-2 wordNowrap">
-        <li class="nav-item">
-          <a [routerLink]="['/login']" [routerLinkActive]="['active']" class="nav-link">Login</a>
-        </li>
-      </div>
-    </div>
-  </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Car Info</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    (click)="toggleCollapse()"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav" [ngClass]="{'show': !isCollapsed}">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/home']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: false }"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/vehicles']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Vehicles</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/vehicles/new']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >New Vehicle</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/contact']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Contact</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']"
+          >Login</a
+        >
+      </li>
+    </ul>
+  </div>
 </nav>
