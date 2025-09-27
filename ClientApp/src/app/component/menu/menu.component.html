@@ -1,13 +1,51 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Car Info</a>
   <button
-    class="navbar-toggler"
+    class="navbar-toggler d-flex align-items-center justify-content-center"
     type="button"
     (click)="toggleCollapse()"
     aria-controls="navbarNav"
     aria-expanded="false"
-    aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    aria-label="Toggle navigation"
+    style="
+      width: 2.7em;
+      height: 2.7em;
+      border-radius: 1em;
+      border: none;
+      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+      box-shadow: 0 4px 16px rgba(60, 60, 120, 0.1);
+      transition: box-shadow 0.2s, background 0.2s;
+      outline: none;
+      position: relative;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    "
+    (mouseenter)="hovered=true"
+    (mouseleave)="hovered=false"
+    (focus)="hovered=true"
+    (blur)="hovered=false">
+    <span
+      class="d-flex flex-column justify-content-center align-items-center menu-icon-anim"
+      style="width: 2.1em; height: 2.1em; position: relative">
+      <span
+        [ngClass]="{'bar': true, 'bar-top': true, 'cross': !isCollapsed}"
+        [ngStyle]="{
+          'background': hovered ? '#007bff' : '#444'
+        }"></span>
+      <span
+        [ngClass]="{'bar': true, 'bar-mid': true, 'hide': !isCollapsed}"
+        [ngStyle]="{
+          'background': hovered ? '#007bff' : '#444'
+        }"></span>
+      <span
+        [ngClass]="{'bar': true, 'bar-bottom': true, 'cross': !isCollapsed}"
+        [ngStyle]="{
+          'background': hovered ? '#007bff' : '#444'
+        }"></span>
+    </span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav" [ngClass]="{'show': !isCollapsed}">
     <ul class="navbar-nav ms-auto">
@@ -17,6 +55,7 @@
           [routerLink]="['/home']"
           [routerLinkActive]="['active']"
           [routerLinkActiveOptions]="{ exact: false }"
+          (click)="onMenuLinkClick()"
           >Home</a
         >
       </li>
@@ -26,6 +65,7 @@
           [routerLink]="['/vehicles']"
           [routerLinkActive]="['active']"
           [routerLinkActiveOptions]="{ exact: true }"
+          (click)="onMenuLinkClick()"
           >Vehicles</a
         >
       </li>
@@ -35,6 +75,7 @@
           [routerLink]="['/vehicles/new']"
           [routerLinkActive]="['active']"
           [routerLinkActiveOptions]="{ exact: true }"
+          (click)="onMenuLinkClick()"
           >New Vehicle</a
         >
       </li>
@@ -44,11 +85,16 @@
           [routerLink]="['/contact']"
           [routerLinkActive]="['active']"
           [routerLinkActiveOptions]="{ exact: true }"
+          (click)="onMenuLinkClick()"
           >Contact</a
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']"
+        <a
+          class="nav-link"
+          [routerLink]="['/login']"
+          [routerLinkActive]="['active']"
+          (click)="onMenuLinkClick()"
           >Login</a
         >
       </li>

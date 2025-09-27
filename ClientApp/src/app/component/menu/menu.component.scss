@@ -1,7 +1,50 @@
+/* Hamburger/Cross animation styles */
+.menu-icon-anim {
+  .bar {
+    display: block;
+    width: 1.8em;
+    height: 0.22em;
+    border-radius: 2px;
+    margin: 0.22em 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    left: 0.15em;
+  }
+  .bar-top {
+    top: 0.3em;
+  }
+  .bar-mid {
+    top: 0.94em;
+  }
+  .bar-bottom {
+    top: 1.58em;
+  }
+  .cross.bar-top {
+    transform: rotate(45deg) translateY(0.64em);
+    top: 0.94em;
+  }
+  .cross.bar-bottom {
+    transform: rotate(-45deg) translateY(-0.64em);
+    top: 0.94em;
+  }
+  .hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+/* Ensure Bootstrap icons are sized and aligned consistently */
+.menu-icon {
+  font-size: 1.5em;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.3em;
+}
 .wordNowrap {
   white-space: nowrap;
 }
 nav {
   margin: 0.1em;
-  padding: 0 1em;
+  padding: 0.3em 1em;
 }

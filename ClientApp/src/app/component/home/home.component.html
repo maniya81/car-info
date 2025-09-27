@@ -1,8 +1,8 @@
-<div class="container mt-5">
+<div class="container mt-4 mb-4">
   <div class="row justify-content-center">
-    <div class="col-lg-8">
+    <div class="col-12 col-md-10 col-lg-8">
       <div class="card shadow-lg border-0">
-        <div class="card-body p-5">
+        <div class="card-body p-3 p-md-4 p-lg-5">
           <h1 class="display-4 text-center mb-3 text-primary">Car Info</h1>
           <p class="lead text-center mb-4">
             A modern web application for managing car makes, models, features, and
@@ -11,81 +11,97 @@
             <span class="fw-bold">.NET Core Web API</span>
           </p>
           <div class="mb-4 text-center">
-            <span class="badge bg-success me-2">Live</span>
-            <a
-              href="https://carinfo.azurewebsites.net/"
-              target="_blank"
-              class="btn btn-outline-primary btn-sm me-2"
-              >App</a
-            >
-            <span class="badge bg-warning text-dark me-2">Backend API</span>
+            <span class="badge bg-success me-2"> <i class="fa fa-globe"></i> Live </span>
+            <span class="badge bg-warning text-dark me-2">
+              <i class="fa fa-cloud"></i> API
+            </span>
             <a
               href="https://car-info.azurewebsites.net/index.html"
               target="_blank"
-              class="btn btn-warning btn-sm fw-bold"
-              ><i class="fa fa-book"></i> Swagger Docs</a
-            >
+              class="btn btn-warning btn-sm fw-bold">
+              <i class="fa fa-plug"></i> Swagger API Docs
+            </a>
           </div>
           <h3 class="h5 mb-3 text-secondary">Source Code & CI/CD</h3>
           <div class="mb-4">
-            <div class="mb-2">
-              <a
-                href="https://github.com/maniya81/car-info"
-                target="_blank"
-                class="btn btn-dark btn-sm me-2">
-                <i class="fa fa-github"></i> Main Repository
-              </a>
-              <a
-                href="https://github.com/maniya81/car-info/tree/main/ClientApp"
-                target="_blank"
-                class="btn btn-outline-dark btn-sm me-2">
-                <i class="fa fa-github"></i> Frontend (Angular)
-              </a>
-              <a
-                href="https://github.com/maniya81/car-info/tree/main/WebApi"
-                target="_blank"
-                class="btn btn-outline-dark btn-sm">
-                <i class="fa fa-github"></i> Backend (Web API)
-              </a>
+            <div class="row g-2 mb-2">
+              <div class="col-12 col-sm-4 d-grid">
+                <a
+                  href="https://github.com/maniya81/car-info"
+                  target="_blank"
+                  class="btn btn-dark btn-sm mb-2 mb-sm-0">
+                  <i class="fa fa-github"></i> Main Repository
+                </a>
+              </div>
+              <div class="col-12 col-sm-4 d-grid">
+                <a
+                  href="https://github.com/maniya81/car-info/tree/main/ClientApp"
+                  target="_blank"
+                  class="btn btn-outline-dark btn-sm mb-2 mb-sm-0">
+                  <i class="fa fa-github"></i> Frontend (Angular)
+                </a>
+              </div>
+              <div class="col-12 col-sm-4 d-grid">
+                <a
+                  href="https://github.com/maniya81/car-info/tree/main/WebApi"
+                  target="_blank"
+                  class="btn btn-outline-dark btn-sm">
+                  <i class="fa fa-github"></i> Backend (Web API)
+                </a>
+              </div>
             </div>
-            <div class="mb-2">
-              <a
-                href="https://dev.azure.com/maniyasagar26/Sigma/_build"
-                target="_blank"
-                class="btn btn-outline-primary btn-sm me-2">
-                <i class="fa fa-cogs"></i> Azure DevOps Build Pipeline
-              </a>
-              <a
-                href="https://dev.azure.com/maniyasagar26/Sigma/_release?_a=releases&view=mine&definitionId=4"
-                target="_blank"
-                class="btn btn-outline-success btn-sm">
-                <i class="fa fa-rocket"></i> Azure DevOps Release Pipeline
-              </a>
+            <div class="row g-2 mb-2">
+              <div class="col-12 col-sm-6 d-grid">
+                <a
+                  href="https://dev.azure.com/maniyasagar26/Sigma/_build"
+                  target="_blank"
+                  class="btn btn-outline-primary btn-sm mb-2 mb-sm-0">
+                  <i class="fa fa-cogs"></i> Azure DevOps Build Pipeline
+                </a>
+              </div>
+              <div class="col-12 col-sm-6 d-grid">
+                <a
+                  href="https://dev.azure.com/maniyasagar26/Sigma/_release?_a=releases&view=mine&definitionId=4"
+                  target="_blank"
+                  class="btn btn-outline-success btn-sm">
+                  <i class="fa fa-rocket"></i> Azure DevOps Release Pipeline
+                </a>
+              </div>
             </div>
           </div>
           <hr />
           <h3 class="h5 mb-3 text-secondary">Project Features</h3>
           <ul class="list-group list-group-flush mb-4">
-            <li class="list-group-item">
+            <li class="list-group-item small">
               🚗 Manage vehicles, makes, models, and features
             </li>
-            <li class="list-group-item">📷 Upload and view vehicle photos</li>
-            <li class="list-group-item">
+            <li class="list-group-item small">📷 Upload and view vehicle photos</li>
+            <li class="list-group-item small">
               🔍 Filter, sort, and paginate vehicle listings
             </li>
-            <li class="list-group-item">📝 Swagger/OpenAPI documentation</li>
-            <li class="list-group-item">
+            <li class="list-group-item small">📝 Swagger/OpenAPI documentation</li>
+            <li class="list-group-item small">
               🔒 Secure backend with Entity Framework & SQL Server
             </li>
-            <li class="list-group-item">🌐 CORS support for Angular frontend</li>
+            <li class="list-group-item small">🌐 CORS support for Angular frontend</li>
           </ul>
           <h3 class="h5 mb-3 text-secondary">Tech Stack</h3>
-          <div class="d-flex flex-wrap gap-3 mb-4 justify-content-center">
-            <span class="badge bg-primary">Angular</span>
-            <span class="badge bg-dark">.NET Core</span>
-            <span class="badge bg-info text-dark">Entity Framework Core</span>
-            <span class="badge bg-warning text-dark">SQL Server</span>
-            <span class="badge bg-success">Azure App Service</span>
+          <div class="row g-2 mb-4 justify-content-center">
+            <div class="col-6 col-sm-4 col-md-2 d-flex justify-content-center">
+              <span class="badge bg-primary w-100">Angular</span>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 d-flex justify-content-center">
+              <span class="badge bg-dark w-100">.NET Core</span>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 d-flex justify-content-center">
+              <span class="badge bg-info text-dark w-100">Entity Framework Core</span>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 d-flex justify-content-center">
+              <span class="badge bg-warning text-dark w-100">SQL Server</span>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 d-flex justify-content-center">
+              <span class="badge bg-success w-100">Azure App Service</span>
+            </div>
           </div>
           <hr />
           <div class="text-center mb-2">
@@ -100,22 +116,28 @@
             >
           </div>
 
-          <div class="text-center">
-            <a
-              href="https://github.com/maniya81/car-info"
-              target="_blank"
-              class="btn btn-outline-dark btn-sm me-2"
-              ><i class="fa fa-github"></i> GitHub</a
-            >
-            <a
-              href="https://www.linkedin.com/in/maniyasagar/"
-              target="_blank"
-              class="btn btn-outline-primary btn-sm me-2"
-              ><i class="fa fa-linkedin"></i> LinkedIn</a
-            >
-            <a href="/contact" class="btn btn-outline-secondary btn-sm"
-              ><i class="fa fa-envelope"></i> Contact</a
-            >
+          <div class="row g-2 text-center">
+            <div class="col-12 col-sm-4 d-grid">
+              <a
+                href="https://github.com/maniya81/car-info"
+                target="_blank"
+                class="btn btn-outline-dark btn-sm mb-2 mb-sm-0">
+                <i class="fa fa-github"></i> GitHub
+              </a>
+            </div>
+            <div class="col-12 col-sm-4 d-grid">
+              <a
+                href="https://www.linkedin.com/in/maniyasagar/"
+                target="_blank"
+                class="btn btn-outline-primary btn-sm mb-2 mb-sm-0">
+                <i class="fa fa-linkedin"></i> LinkedIn
+              </a>
+            </div>
+            <div class="col-12 col-sm-4 d-grid">
+              <a href="/contact" class="btn btn-outline-secondary btn-sm">
+                <i class="fa fa-envelope"></i> Contact
+              </a>
+            </div>
           </div>
         </div>
       </div>
