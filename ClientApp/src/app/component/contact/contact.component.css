@@ -1,0 +1,10 @@
+/* Contact page styles */
+.card {
+  border-radius: 1rem;
+}
+.card-title {
+  color: #007bff;
+}
+.btn {
+  font-weight: 500;
+}

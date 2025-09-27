@@ -1,0 +1,27 @@
+# Visual Studio / .NET
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+*.pubxml
+*.pubxml.user
+*.csproj.user
+
+# VS Code
+.vscode/
+
+# Node/Angular
+ClientApp/node_modules/
+ClientApp/dist/
+
+# Logs
+*.log
+
+# Secrets
+secrets.json
+**/appsettings.*.local.json
+
+# Misc
+*.tmp
+*.cache

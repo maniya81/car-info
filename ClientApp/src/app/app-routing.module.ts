@@ -1,5 +1,6 @@
 import { HomeComponent } from './component/home/home.component';
 import { VehicleFormComponent } from './component/vehicle-form/vehicle-form.component';
+import { ContactComponent } from './component/contact/contact.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { VehicleListComponent } from './component/vehicle-list/vehicle-list';
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'vehicles/:id', component: ViewVehicleComponent },
   { path: 'home', component: HomeComponent },
   { path: 'vehicles', component: VehicleListComponent },
+  { path: 'contact', component: ContactComponent },
   {
     path: '**',
     redirectTo: 'home',

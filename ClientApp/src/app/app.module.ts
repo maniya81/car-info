@@ -1,5 +1,6 @@
 import { VehicleListComponent } from './component/vehicle-list/vehicle-list';
 import { HomeComponent } from './component/home/home.component';
+import { ContactComponent } from './component/contact/contact.component';
 import { VehicleService } from './services/vehicle.service';
 import { MenuComponent } from './component/menu/menu.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,19 +23,15 @@ import { PhotoService } from './services/photo.service';
     HomeComponent,
     VehicleListComponent,
     PaginationComponent,
-    ViewVehicleComponent
+    ViewVehicleComponent,
+    ContactComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHandler },
     VehicleService,
-    PhotoService
+    PhotoService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

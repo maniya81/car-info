@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
+    <UserSecretsId>CarInfo-6e1c7e1b-3a1b-4f23-9d2b-connstrings</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,4 +21,4 @@
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
-  </Project>
+</Project>

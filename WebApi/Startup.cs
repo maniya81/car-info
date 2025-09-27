@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
 
@@ -33,8 +34,28 @@ namespace CarInfo
                       .AllowAnyHeader();
             }));
 
-            services.AddDbContext<CarDbContext>(opt => opt.UseSqlServer
-            (Configuration.GetConnectionString("CarInfoConnection")));
+            // Use LocalDbConnection for local environment, otherwise use AzureCarInfoDb or secret-shared connection string
+            string connStr;
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+            {
+                connStr = Configuration.GetConnectionString("LocalDbConnection");
+            }
+            else
+            {
+                // Try to get AzureCarInfoDb from appsettings.json
+                connStr = Configuration.GetConnectionString("AzureCarInfoDb");
+                // Fallback to secret sharing methods (User Secrets, Environment Variables, Azure App Settings)
+                if (string.IsNullOrWhiteSpace(connStr))
+                {
+                    connStr = Environment.GetEnvironmentVariable("ConnectionStrings__AzureCarInfoDb")
+                              ?? Environment.GetEnvironmentVariable("AzureCarInfoDb");
+                }
+            }
+            if (string.IsNullOrWhiteSpace(connStr))
+            {
+                throw new InvalidOperationException("Database connection string is not configured. Provide ConnectionStrings:LocalDbConnection for local dev or ConnectionStrings:AzureCarInfoDb via User Secrets/App Settings/Environment Variables for production.");
+            }
+            services.AddDbContext<CarDbContext>(opt => opt.UseSqlServer(connStr));
             services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddScoped<IPhotoRepository, PhotoRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -49,12 +70,12 @@ namespace CarInfo
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //    app.UseSwagger();
-            //    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CarInfo v1"));
-            //}
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CarInfo v1"));
+            }
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
